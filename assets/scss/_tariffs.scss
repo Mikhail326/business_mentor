@@ -1,0 +1,158 @@
+.tariffs {
+  margin: 48px 0;
+
+  & span {
+    display: block;
+    color: $grey;
+    text-align: center;
+    line-height: 22.4px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.tariff {
+  &__item {
+    position: relative;
+    width: 424px;
+    text-align: center;
+    padding: 32px 12px;
+    border-radius: $br-item;
+    background-color: $light;
+
+    @media (max-width: 1024px) {
+      width: 304px;
+      padding: 24px 12px;
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+      margin: 4px;
+    }
+
+    &:nth-of-type(2) {
+      border: 4px solid #e0b330;
+
+      & .tariff__price {
+        background-image: url("../img/tariff-item-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        & p {
+          color: $light;
+        }
+      }
+
+      & h3 {
+        color: $light;
+      }
+    }
+
+    & span {
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      border-radius: 16px 16px 0px 0px;
+      background: $l-gradient;
+      padding: 6px 12px;
+      color: $light;
+      text-transform: inherit;
+    }
+
+    &-icon {
+      margin: 0 auto 20px auto;
+      width: 80px;
+      height: 80px;
+
+      @media (max-width: 1024px) {
+        width: 74px;
+        height: 74px;
+      }
+
+      & img {
+        max-width: 100%;
+      }
+    }
+
+    & h4 {
+      margin-bottom: 8px;
+    }
+
+    & p {
+      margin-bottom: 24px;
+    }
+
+    & ul {
+      text-align: start;
+      padding: 0 20px;
+      margin-top: 24px;
+
+      & li {
+        line-height: 22.4px;
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url("../img/list-icon.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  &__price {
+    background-color: $price-bg;
+    padding: 32px 24px 24px;
+    border-radius: $br-price;
+    margin-bottom: 8px;
+
+    & h3 {
+      margin-bottom: 8px;
+    }
+
+    & p {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__warranty {
+    position: relative;
+
+    & img {
+      max-width: 100%;
+    }
+
+    &-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translate(0, -50%);
+    }
+  }
+}

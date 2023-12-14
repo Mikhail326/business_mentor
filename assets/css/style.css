@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF UI Display"), url("../fonts/sf-ui-display-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF UI Display Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF UI Display"), url("../fonts/sf-ui-display-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF UI Display Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF UI Display"), url("../fonts/sf-ui-display-bold.woff") format("woff");
+}
+
 html,
 body,
 div,
@@ -148,5 +169,218 @@ input {
 }
 
 body {
-  font-family: Open Sans;
+  font-family: "SF UI Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: #0e0f11;
+  background-color: #f3f7fb;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 56px;
+  margin-bottom: 94px;
+}
+
+h3 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+h4 {
+  color: #0e0f11;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 38.4px;
+}
+
+p {
+  color: #8f959b;
+  line-height: 22.4px;
+}
+
+.btn {
+  padding: 22px 143px;
+  background-color: #0e0f11;
+  color: #fff;
+  font-weight: bold;
+  line-height: 19.2px;
+  border-radius: 16px;
+}
+
+.tariffs {
+  margin: 48px 0;
+}
+
+.tariffs span {
+  display: block;
+  color: #c3c8cf;
+  text-align: center;
+  line-height: 22.4px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.tariffs__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tariff__item {
+  position: relative;
+  width: 424px;
+  text-align: center;
+  padding: 32px 12px;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.tariff__item:nth-of-type(1), .tariff__item:nth-of-type(3) {
+  margin: 4px;
+}
+
+.tariff__item:nth-of-type(2) {
+  border: 4px solid #e0b330;
+}
+
+.tariff__item:nth-of-type(2) .tariff__price {
+  background-image: url("../img/tariff-item-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.tariff__item:nth-of-type(2) .tariff__price p {
+  color: #fff;
+}
+
+.tariff__item:nth-of-type(2) h3 {
+  color: #fff;
+}
+
+.tariff__item span {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  border-radius: 16px 16px 0px 0px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff289), to(#d2a41d));
+  background: -o-linear-gradient(top, #fff289 0%, #d2a41d 100%);
+  background: linear-gradient(180deg, #fff289 0%, #d2a41d 100%);
+  padding: 6px 12px;
+  color: #fff;
+  text-transform: inherit;
+}
+
+.tariff__item-icon {
+  margin: 0 auto 20px auto;
+  width: 80px;
+  height: 80px;
+}
+
+.tariff__item-icon img {
+  max-width: 100%;
+}
+
+.tariff__item h4 {
+  margin-bottom: 8px;
+}
+
+.tariff__item p {
+  margin-bottom: 24px;
+}
+
+.tariff__item ul {
+  text-align: start;
+  padding: 0 20px;
+  margin-top: 24px;
+}
+
+.tariff__item ul li {
+  line-height: 22.4px;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+}
+
+.tariff__item ul li:last-child {
+  margin-bottom: 0;
+}
+
+.tariff__item ul li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../img/list-icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+}
+
+.tariff__price {
+  background-color: #f3f7fb;
+  padding: 32px 24px 24px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.tariff__price h3 {
+  margin-bottom: 8px;
+}
+
+.tariff__price p {
+  margin-bottom: 24px;
+}
+
+.tariff__warranty {
+  position: relative;
+}
+
+.tariff__warranty img {
+  max-width: 100%;
+}
+
+.tariff__warranty-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 48px;
+    line-height: 48px;
+    margin-bottom: 22px;
+  }
+  .tariffs span {
+    margin-bottom: 16px;
+  }
+  .tariff__item {
+    width: 304px;
+    padding: 24px 12px;
+  }
+  .tariff__item-icon {
+    width: 74px;
+    height: 74px;
+  }
 }
