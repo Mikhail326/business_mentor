@@ -188,7 +188,8 @@ h2 {
   font-size: 56px;
   font-weight: 600;
   line-height: 56px;
-  margin-bottom: 94px;
+  margin-bottom: 121px;
+  letter-spacing: 1.9px;
 }
 
 h3 {
@@ -370,7 +371,21 @@ p {
   h2 {
     font-size: 48px;
     line-height: 48px;
-    margin-bottom: 22px;
+    margin-bottom: 48px;
+  }
+  h3 {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+  .btn {
+    padding: 20px 91px;
+  }
+  .tariffs {
+    margin: 32px 0;
   }
   .tariffs span {
     margin-bottom: 16px;
@@ -382,5 +397,38 @@ p {
   .tariff__item-icon {
     width: 74px;
     height: 74px;
+    margin: 0 auto 16px auto;
+  }
+  .tariff__item p {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+  .tariff__item ul {
+    padding: 0 8px;
+  }
+  .tariff__item ul li {
+    font-size: 14px;
+    line-height: 19.6px;
+    margin-bottom: 8px;
+  }
+  .tariff__price {
+    padding: 24px 16px 16px;
+  }
+  .tariff__price h3 {
+    margin-bottom: 4px;
+  }
+  .tariff__price p {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+}
+
+@media (max-width: 744px) {
+  .tariffs__list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .tariff__item {
+    width: 100%;
   }
 }

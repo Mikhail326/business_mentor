@@ -22,12 +22,13 @@ h2 {
   font-size: 56px;
   font-weight: 600;
   line-height: 56px;
-  margin-bottom: 94px;
+  margin-bottom: 121px;
+  letter-spacing: 1.9px;
 
   @media(max-width:1024px) {
     font-size: 48px;
     line-height: 48px;
-    margin-bottom: 22px;
+    margin-bottom: 48px;
   }
 }
 
@@ -35,6 +36,11 @@ h3 {
   font-size: 40px;
   font-weight: 700;
   line-height: 48px;
+
+  @media(max-width:1024px) {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
 }
 
 h4 {
@@ -42,6 +48,11 @@ h4 {
   font-size: 32px;
   font-weight: 600;
   line-height: 38.4px;
+
+  @media(max-width:1024px) {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
 }
 
 p {
@@ -56,4 +67,8 @@ p {
   font-weight: bold;
   line-height: 19.2px;
   border-radius: $br-btn;
+
+  @media(max-width:1024px) {
+    padding: 20px 91px;
+  }
 }
