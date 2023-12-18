@@ -162,6 +162,54 @@
 }
 
 .item {
+  position: relative;
+
+  &__timer {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 17px;
+    background-color: $bg-timer;
+    z-index: 10;
+
+    @media (max-width: 900px) {
+      top: 24px;
+      left: calc(50% + 40px);
+    }
+
+    @media (max-width: 600px) {
+      top: 16px;
+      left: 16px;
+      padding: 6px;
+    }
+
+    &-icon {
+      width: 16px;
+      height: 18px;
+
+      @media (max-width: 600px) {
+        width: 13px;
+        height: 15px;
+      }
+    }
+
+    &-num {
+      font-size: 14px;
+      font-weight: 600;
+      color: $timer;
+      line-height: 19.6px;
+
+      @media (max-width: 600px) {
+        font-size: 12px;
+        line-height: 14.4px;
+      }
+    }
+  }
+
   &__title {
     @media (max-width: 900px) {
       text-align: start;
@@ -393,6 +441,18 @@
   }
 }
 
-.item__warranty-icon:hover ~ .item__warranty-info   {
+.item__warranty-icon:hover ~ .item__warranty-info {
   opacity: 1;
+}
+
+.disabled {
+  background-color: $grey;
+
+  & .item__timer-icon {
+    display: none;
+  }
+
+  & .item__timer-num {
+    color: $dark-grey;
+  }
 }
