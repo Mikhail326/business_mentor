@@ -1,8 +1,13 @@
 .tariffs {
   margin: 48px 0;
+  position: relative;
 
   @media (max-width: 1024px) {
     margin: 32px 0;
+  }
+
+  @media (max-width: 600px) {
+    margin: 24px 0;
   }
 
   & span {
@@ -16,6 +21,10 @@
     @media (max-width: 1024px) {
       margin-bottom: 16px;
     }
+
+    @media (max-width: 900px) {
+      margin-bottom: 12px;
+    }
   }
 
   &__list {
@@ -23,9 +32,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 
-    @media (max-width: 744px) {
+    @media (max-width: 900px) {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-rows: max-content;
+      gap: 12px;
     }
   }
 }
@@ -33,19 +43,35 @@
 .tariff {
   &__item {
     position: relative;
-    width: 424px;
+    max-width: 424px;
     text-align: center;
     padding: 32px 12px;
     border-radius: $br-item;
     background-color: $light;
 
     @media (max-width: 1024px) {
-      width: 304px;
+      max-width: 304px;
       padding: 24px 12px;
     }
 
-    @media (max-width: 744px) {
-      width: 100%;
+    @media (max-width: 900px) {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: max-content;
+      column-gap: 40px;
+      padding: 12px 12px 12px 24px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 24px;
+      display: block;
+    }
+
+    &:nth-of-type(1) {
+      & .item__price-inner {
+        margin-bottom: 0;
+      }
     }
 
     &:nth-of-type(1),
@@ -53,10 +79,49 @@
       margin: 4px;
     }
 
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      @media (max-width: 900px) {
+        order: -1;
+      }
+    }
+
     &:nth-of-type(2) {
       border: 4px solid #e0b330;
 
-      & .tariff__price {
+      @media (max-width: 600px) {
+        border: 3px solid #e0b330;
+      }
+
+      & span {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 14px;
+        line-height: 19.4px;
+        border-radius: 16px 16px 0px 0px;
+        background: $l-gradient;
+        padding: 6px 12px;
+        color: $light;
+        text-transform: inherit;
+
+        @media (max-width: 900px) {
+          left: 24px;
+          transform: translate(0, 0);
+        }
+
+        @media (max-width: 600px) {
+          font-size: 12px;
+          line-height: 14.4px;
+          padding: 6px 10px;
+          top: -27px;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      & .item__price-inner {
         background-image: url("../img/tariff-item-bg.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -65,23 +130,70 @@
         & p {
           color: $light;
         }
-      }
 
-      & h3 {
-        color: $light;
+        & h3 {
+          color: $light;
+        }
       }
     }
 
-    & span {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translate(-50%, 0);
-      border-radius: 16px 16px 0px 0px;
-      background: $l-gradient;
-      padding: 6px 12px;
-      color: $light;
-      text-transform: inherit;
+    &:nth-of-type(3) {
+      & .item__list {
+        & li {
+          position: relative;
+          &:nth-child(1) {
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              background-image: url("/assets/img/icons-bank.svg");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              width: 60px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.item {
+  &__title {
+    @media (max-width: 900px) {
+      text-align: start;
+    }
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+
+    & h4 {
+      margin-bottom: 8px;
+
+      @media (max-width: 600px) {
+        margin-bottom: 4px;
+      }
+    }
+
+    & p {
+      margin-bottom: 24px;
+
+      @media (max-width: 1024px) {
+        font-size: 14px;
+        line-height: 19.6px;
+      }
+
+      @media (max-width: 900px) {
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 600px) {
+        margin-bottom: 16px;
+      }
     }
 
     &-icon {
@@ -95,98 +207,91 @@
         margin: 0 auto 16px auto;
       }
 
+      @media (max-width: 900px) {
+        width: 64px;
+        height: 64px;
+        margin: 12px 0 20px;
+      }
+
+      @media (max-width: 600px) {
+        margin: 0 auto 16px auto;
+      }
+
       & img {
         max-width: 100%;
-      }
-    }
-
-    & h4 {
-      margin-bottom: 8px;
-    }
-
-    & p {
-      margin-bottom: 24px;
-
-      @media(max-width:1024px) {
-        font-size: 14px;
-        line-height: 19.6px;
-      }
-    }
-
-    & ul {
-      text-align: start;
-      padding: 0 20px;
-      margin-top: 24px;
-
-      @media(max-width:1024px) {
-        padding: 0 8px;
-      }
-
-      & li {
-        line-height: 22.4px;
-        position: relative;
-        padding-left: 22px;
-        margin-bottom: 12px;
-
-        @media(max-width:1024px) {
-          font-size: 14px;
-          line-height: 19.6px;
-          margin-bottom: 8px;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-image: url("../img/list-icon.svg");
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
-          width: 20px;
-          height: 20px;
-        }
       }
     }
   }
 
   &__price {
-    background-color: $price-bg;
-    padding: 32px 24px 24px;
-    border-radius: $br-price;
-    margin-bottom: 8px;
-
-    @media(max-width:1024px) {
-      padding: 24px 16px 16px;
+    @media (max-width: 900px) {
+      grid-row: span 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    & h3 {
+    @media (max-width: 600px) {
+      display: block;
+      height: auto;
+    }
+
+    &-inner {
+      background-color: $price-bg;
+      padding: 32px 24px 24px;
+      border-radius: $br-price;
       margin-bottom: 8px;
 
-      @media(max-width:1024px) {
-        margin-bottom: 4px;
+      @media (max-width: 1024px) {
+        padding: 24px 16px 16px;
       }
-    }
 
-    & p {
-      margin-bottom: 24px;
+      @media (max-width: 900px) {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
 
-      @media(max-width:1024px) {
-        font-size: 14px;
-        line-height: 19.6px;
+      & h3 {
+        margin-bottom: 8px;
+
+        @media (max-width: 1024px) {
+          margin-bottom: 4px;
+        }
+      }
+
+      & p {
+        margin-bottom: 24px;
+
+        @media (max-width: 1024px) {
+          font-size: 14px;
+          line-height: 19.6px;
+        }
+
+        @media (max-width: 600px) {
+          margin-bottom: 16px;
+        }
       }
     }
   }
 
   &__warranty {
     position: relative;
+    height: 72px;
+
+    @media (max-width: 600px) {
+      height: 52px;
+    }
 
     & img {
-      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
     }
 
     &-icon {
@@ -195,6 +300,99 @@
       top: 50%;
       right: 10px;
       transform: translate(0, -50%);
+      width: 20px !important;
+      height: 20px !important;
+
+      &:hover &.item__warranty-info {
+        opacity: 0;
+        background-color: red;
+      }
+    }
+
+    &-info {
+      position: absolute;
+      top: 60px;
+      right: -1px;
+      max-width: 295px;
+      background-color: $dark;
+      padding: 8px 12px;
+      z-index: 10;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        right: 15px;
+        background-color: #0e0f11;
+        width: 16px;
+        height: 22px;
+        z-index: -1;
+        transform: rotate(45deg);
+      }
+
+      & p {
+        text-align: start;
+        color: #fff;
+        font-size: 14px;
+        line-height: 19.6px;
+        font-weight: 500;
+      }
     }
   }
+
+  &__list {
+    text-align: start;
+    padding: 0 20px;
+    margin-top: 24px;
+
+    @media (max-width: 1024px) {
+      padding: 0 8px;
+    }
+
+    @media (max-width: 900px) {
+      margin-top: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 600px) {
+      margin-top: 20px;
+    }
+
+    & li {
+      line-height: 22.4px;
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 12px;
+
+      @media (max-width: 1024px) {
+        font-size: 14px;
+        line-height: 19.6px;
+        margin-bottom: 8px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url("../img/list-icon.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.item__warranty-icon:hover ~ .item__warranty-info   {
+  opacity: 1;
 }
